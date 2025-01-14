@@ -577,20 +577,67 @@ local PresetPresets = {
 }
 
 function TOOL.BuildCPanel( panel )
-	panel:AddControl( "ComboBox", { MenuButton = 1, Folder = "rb655_lightsabers", Options = PresetPresets, CVars = table.GetKeys( ConVarsDefault ) } )
+	local presets = vgui.Create( "ControlPresets", panel )
+	presets:SetPreset( "rb655_lightsabers" )
+	for k, v in pairs( PresetPresets ) do
+		presets:AddOption( k, v )
+	end
+	for k, v in pairs( table.GetKeys( ConVarsDefault ) ) do
+		presets:AddConVar( v )
+	end
+	panel:AddPanel( presets )
 
-	panel:AddControl( "PropSelect", {Label = "#tool.rb655_lightsaber.model", Height = 4, ConVar = "rb655_lightsaber_model", Models = list.Get( "LightsaberModels" )} )
-	panel:AddControl( "Color", { Label = "#tool.rb655_lightsaber.color", Red = "rb655_lightsaber_red", Green = "rb655_lightsaber_green", Blue = "rb655_lightsaber_blue", ShowAlpha = "0", ShowHSV = "1", ShowRGB = "1" } )
+	local model = vgui.Create( "PropSelect", panel )
+	model:ControlValues( { label = "#tool.rb655_lightsaber.model", height = 4, convar = "rb655_lightsaber_model", models = list.Get( "LightsaberModels" ) } )
+	panel:AddPanel( model )
 
-	panel:AddControl( "Checkbox", { Label = "#tool.rb655_lightsaber.DarkInner", Command = "rb655_lightsaber_dark" } )
-	panel:AddControl( "Checkbox", { Label = "#tool.rb655_lightsaber.StartEnabled", Command = "rb655_lightsaber_starton" } )
+	local color = vgui.Create( "CtrlColor", panel )
+	color:SetLabel( "#tool.rb655_lightsaber.color" )
+	color:SetConVarR( "rb655_lightsaber_red" )
+	color:SetConVarG( "rb655_lightsaber_green" )
+	color:SetConVarB( "rb655_lightsaber_blue" )
 
-	panel:AddControl( "Slider", {Label = "#tool.rb655_lightsaber.bladeW", Type = "Float", Min = 2, Max = 4, Command = "rb655_lightsaber_bladew"} )
-	panel:AddControl( "Slider", {Label = "#tool.rb655_lightsaber.bladeL", Type = "Float", Min = 32, Max = 64, Command = "rb655_lightsaber_bladel"} )
+	panel:CheckBox( "#tool.rb655_lightsaber.DarkInner", "rb655_lightsaber_dark" )
+	panel:CheckBox( "#tool.rb655_lightsaber.StartEnabled", "rb655_lightsaber_starton" )
 
-	panel:AddControl( "ListBox", { Label = "#tool.rb655_lightsaber.HumSound", Options = list.Get( "rb655_LightsaberHumSounds" ) } )
-	panel:AddControl( "ListBox", { Label = "#tool.rb655_lightsaber.SwingSound", Options = list.Get( "rb655_LightsaberSwingSounds" ) } )
-	panel:AddControl( "ListBox", { Label = "#tool.rb655_lightsaber.IgniteSound", Options = list.Get( "rb655_LightsaberIgniteSounds" ) } )
+	panel:NumSlider( "#tool.rb655_lightsaber.bladeW", "rb655_lightsaber_bladew", 2, 4, 2 )
+	panel:NumSlider( "#tool.rb655_lightsaber.bladeL", "rb655_lightsaber_bladel", 32, 64, 2 )
 
-	panel:AddControl( "Checkbox", { Label = "#tool.rb655_lightsaber.HudBlur", Command = "rb655_lightsaber_hud_blur" } )
+	-- Hum sound
+	local humSnd = vgui.Create( "CtrlListBox", panel )
+	local humSndLabel = vgui.Create( "DLabel", panel )
+	for k, v in pairs( list.Get( "rb655_LightsaberHumSounds" ) ) do
+		humSnd:AddOption( k, v )
+	end
+	humSndLabel:SetText( "#tool.rb655_lightsaber.HumSound" )
+	humSndLabel:SetDark( true )
+	humSnd:SetHeight( 25 )
+	humSnd:Dock( TOP )
+	panel:AddItem( humSndLabel, humSnd )
+
+	-- Swing sound
+	local swingSnd = vgui.Create( "CtrlListBox", panel )
+	local swingSndLabel = vgui.Create( "DLabel", panel )
+	for k, v in pairs( list.Get( "rb655_LightsaberSwingSounds" ) ) do
+		swingSnd:AddOption( k, v )
+	end
+	swingSndLabel:SetText( "#tool.rb655_lightsaber.SwingSound" )
+	swingSndLabel:SetDark( true )
+	swingSnd:SetHeight( 25 )
+	swingSnd:Dock( TOP )
+	panel:AddItem( swingSndLabel, swingSnd )
+
+	-- Ignition sound
+	local igniteSnd = vgui.Create( "CtrlListBox", panel )
+	local igniteSndLabel = vgui.Create( "DLabel", panel )
+	for k, v in pairs( list.Get( "rb655_LightsaberIgniteSounds" ) ) do
+		igniteSnd:AddOption( k, v )
+	end
+	igniteSndLabel:SetText( "#tool.rb655_lightsaber.IgniteSound" )
+	igniteSndLabel:SetDark( true )
+	igniteSnd:SetHeight( 25 )
+	igniteSnd:Dock( TOP )
+	panel:AddItem( igniteSndLabel, igniteSnd )
+
+	panel:CheckBox( "#tool.rb655_lightsaber.HudBlur", "rb655_lightsaber_hud_blur" )
 end

@@ -1,5 +1,5 @@
 
-TOOL.Category = "Robotboy655"
+TOOL.Category = "Fun"
 TOOL.Name = "#tool.rb655_lightsaber"
 
 TOOL.ClientConVar[ "model" ] = "models/sgg/starwars/weapons/w_anakin_ep2_saber_hilt.mdl"

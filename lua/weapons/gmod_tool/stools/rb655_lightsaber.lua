@@ -261,7 +261,7 @@ list.Set( "rb655_LightsaberIgniteSounds", "#tool.rb655_lightsaber.sith", { rb655
 list.Set( "rb655_LightsaberIgniteSounds", "#tool.rb655_lightsaber.sith_fast", { rb655_lightsaber_onsound = "lightsaber/saber_on2_fast.wav", rb655_lightsaber_offsound = "lightsaber/saber_off2_fast.wav" } )
 list.Set( "rb655_LightsaberIgniteSounds", "#tool.rb655_lightsaber.heavy", { rb655_lightsaber_onsound = "lightsaber/saber_on3.wav", rb655_lightsaber_offsound = "lightsaber/saber_off3.wav" } )
 list.Set( "rb655_LightsaberIgniteSounds", "#tool.rb655_lightsaber.heavy_fast", { rb655_lightsaber_onsound = "lightsaber/saber_on3_fast.wav", rb655_lightsaber_offsound = "lightsaber/saber_off3_fast.wav" } )
-list.Set( "rb655_LightsaberIgniteSounds", "#tool.rb655_lightsaber.jedi2", { rb655_lightsaber_onsound = "lightsaber/saber_on4.wav", rb655_lightsaber_offsound = "lightsaber/saber_off4.mp3" } )
+list.Set( "rb655_LightsaberIgniteSounds", "#tool.rb655_lightsaber.jedi2", { rb655_lightsaber_onsound = "lightsaber/saber_on4.wav", rb655_lightsaber_offsound = "lightsaber/saber_off4.wav" } )
 list.Set( "rb655_LightsaberIgniteSounds", "#tool.rb655_lightsaber.jedi2_fast", { rb655_lightsaber_onsound = "lightsaber/saber_on4_fast.wav", rb655_lightsaber_offsound = "lightsaber/saber_off4_fast.wav" } )
 list.Set( "rb655_LightsaberIgniteSounds", "#tool.rb655_lightsaber.dark", { rb655_lightsaber_onsound = "lightsaber/darksaber_on.wav", rb655_lightsaber_offsound = "lightsaber/darksaber_off.wav" } )
 list.Set( "rb655_LightsaberIgniteSounds", "#tool.rb655_lightsaber.kylo", { rb655_lightsaber_onsound = "lightsaber/saber_on_kylo.wav", rb655_lightsaber_offsound = "lightsaber/saber_off_kylo.wav" } )

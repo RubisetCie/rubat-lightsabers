@@ -71,14 +71,10 @@ local tr = {
 	["lightsaber/saberon4_fast.wav"] = "lightsaber/saber_on4_fast.wav",
 	["lightsaber/saberoff4.wav"] = "lightsaber/saber_off4.wav",
 	["lightsaber/saberoff4_fast.wav"] = "lightsaber/saber_off4_fast.wav",
-
-	["lightsaber/saberon4.mp3"] = "lightsaber/saber_on4.wav",
-	["lightsaber/saberoff4.mp3"] = "lightsaber/saber_off4.wav",
 }
 
 local convars = {
 	"rb655_lightsaber_model",
-
 	"rb655_lightsaber_humsound",
 	"rb655_lightsaber_swingsound",
 	"rb655_lightsaber_onsound",

@@ -5,9 +5,10 @@
 	"ignore"	:
 	[
 		"preview.png",
-		"*.bat",
 		"*.code-workspace",
 		"*.md",
+		".git",
+		".github",
 		".vscode/*"
 	]
 }

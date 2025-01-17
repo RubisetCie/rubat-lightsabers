@@ -311,7 +311,7 @@ language.Add( "tool.rb655_lightsaber.HumSound", "Hum Sound" )
 language.Add( "tool.rb655_lightsaber.SwingSound", "Swing Sound" )
 language.Add( "tool.rb655_lightsaber.IgniteSound", "Ignition Sound" )
 
-language.Add( "tool.rb655_lightsaber.HudBlur", "Enable HUD Blur ( may reduce performance )" )
+language.Add( "tool.rb655_lightsaber.HudBlur", "Enable HUD Blur (may reduce performance)" )
 
 language.Add( "tool.rb655_lightsaber.bladew", "Blade Width" )
 language.Add( "tool.rb655_lightsaber.bladel", "Blade Length" )
@@ -596,6 +596,7 @@ function TOOL.BuildCPanel( panel )
 	color:SetConVarR( "rb655_lightsaber_red" )
 	color:SetConVarG( "rb655_lightsaber_green" )
 	color:SetConVarB( "rb655_lightsaber_blue" )
+	panel:AddPanel( color )
 
 	panel:CheckBox( "#tool.rb655_lightsaber.DarkInner", "rb655_lightsaber_dark" )
 	panel:CheckBox( "#tool.rb655_lightsaber.StartEnabled", "rb655_lightsaber_starton" )

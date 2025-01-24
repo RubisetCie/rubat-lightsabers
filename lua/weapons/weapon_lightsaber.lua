@@ -3,7 +3,6 @@ AddCSLuaFile()
 
 if ( SERVER ) then
 	util.AddNetworkString( "rb655_holdtype" )
-	resource.AddWorkshop( "111412589" )
 	CreateConVar( "rb655_lightsaber_infinite", "0" )
 end
 

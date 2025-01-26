@@ -5,7 +5,7 @@ ENT.Type = "anim"
 ENT.Base = "base_anim"
 
 ENT.PrintName = "Lightsaber"
-ENT.Category = "Robotboy655's Entities"
+ENT.Category = "Fun + Games"
 
 ENT.Editable = true
 ENT.Spawnable = true

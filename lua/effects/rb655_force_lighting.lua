@@ -1,3 +1,5 @@
+local render = render
+local math = math
 
 local function GetRandomPositionInBox( mins, maxs, ang )
 	return ang:Up() * math.random( mins.z, maxs.z ) + ang:Right() * math.random( mins.y, maxs.y ) + ang:Forward() * math.random( mins.x, maxs.x )
@@ -113,7 +115,6 @@ hook.Add( "PostDrawTranslucentRenderables", "", function()
 		end
 	end
 end )
-
 
 function EFFECT:Init( data )
 	local pos = data:GetOrigin()

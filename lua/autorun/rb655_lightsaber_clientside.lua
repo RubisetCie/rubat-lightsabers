@@ -18,6 +18,14 @@ if ( SERVER ) then
 	return
 end
 
+local ClientsideModel = ClientsideModel
+local CurTime = CurTime
+local DynamicLight = DynamicLight
+local IsValid = IsValid
+local render = render
+local util = util
+local math = math
+
 -- --------------------------------------------------------- Fix the bad sounds and models --------------------------------------------------------- --
 
 local tr = {
@@ -87,7 +95,6 @@ hook.Add( "Initialize", "rb655_fix_convars", function()
 	for id, cvar in ipairs( convars ) do
 		if ( tr[ GetConVar( cvar ):GetString():lower() ] ) then
 			RunConsoleCommand( cvar, tr[ GetConVar( cvar ):GetString():lower() ] )
-			print( "Fixing convar value for " .. cvar .. "!" )
 		end
 	end
 end )
@@ -336,8 +343,6 @@ local function InvalidateLightsaberCache( ent )
 end
 hook.Add( "OnEntityCreated", "rb655_lightsaber_iterator", InvalidateLightsaberCache )
 hook.Add( "EntityRemoved", "rb655_lightsaber_iterator", InvalidateLightsaberCache )
-
-
 
 hook.Add( "Think", "rb655_lightsaber_ugly_fixes", function()
 	for id, ent in rb655_lightsaberW_iterator() do

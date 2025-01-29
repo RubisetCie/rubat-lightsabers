@@ -43,6 +43,13 @@ SWEP.IsLightsaber = true
 -- We have NPC support, but it SUCKS
 list.Add( "NPCUsableWeapons", { class = "weapon_lightsaber", title = SWEP.PrintName } )
 
+local IsValid = IsValid
+local CurTime = CurTime
+local surface = surface
+local render = render
+local draw = draw
+local math = math
+
 -- --------------------------------------------------------- Helper functions --------------------------------------------------------- --
 
 local function IsPlayerInWater( ply )

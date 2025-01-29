@@ -15,6 +15,11 @@ ENT.AutomaticFrameAdvance = true
 
 ENT.IsLightsaber = true
 
+local IsValid = IsValid
+local CurTime = CurTime
+local string = string
+local math = math
+
 -- --------------------------------------------------------- Initialization --------------------------------------------------------- --
 
 function ENT:SetupDataTables()

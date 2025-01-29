@@ -1,3 +1,4 @@
+local math = math
 
 function EFFECT:Init( data )
 	local pos = data:GetOrigin()

@@ -1,6 +1,11 @@
 
 AddCSLuaFile()
 
+local IsValid = IsValid
+local CurTime = CurTime
+local util = util
+local math = math
+
 -- -------------------------------------------------- Lightsaber effects -------------------------------------------------- --
 
 -- game.AddDecal( "LSScorch", "effects/rb655_scorch" ) -- Why doesn't it work?

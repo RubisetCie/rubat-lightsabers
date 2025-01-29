@@ -7,8 +7,8 @@ if ( SERVER ) then
 end
 
 SWEP.PrintName = "Lightsaber"
-SWEP.Author = "Robotboy655"
-SWEP.Category = "Robotboy655's Weapons"
+SWEP.Author = "Rubat"
+SWEP.Category = "Fun"
 SWEP.Contact = "http://steamcommunity.com/profiles/76561197996891752"
 SWEP.Purpose = "To slice off each others limbs and heads."
 SWEP.Instructions = "Use the force, Luke."

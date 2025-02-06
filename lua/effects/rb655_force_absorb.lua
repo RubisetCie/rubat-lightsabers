@@ -1,4 +1,5 @@
 local math = math
+local vector_origin = vector_origin
 
 function EFFECT:Init( data )
 	local pos = data:GetOrigin()
@@ -12,7 +13,7 @@ function EFFECT:Init( data )
 		particle:SetDieTime( 2 )
 
 		particle:SetGravity( Vector( 0, 0, 100 ) )
-		particle:SetVelocity( Vector( 0, 0, 0 ) )
+		particle:SetVelocity( vector_origin )
 
 		particle:SetStartSize( math.random( 1, 5 ) )
 		particle:SetEndSize( math.random( 0, 1 ) )

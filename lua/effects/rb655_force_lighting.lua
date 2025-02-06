@@ -1,3 +1,4 @@
+local color_white = color_white
 local render = render
 local math = math
 
@@ -110,8 +111,8 @@ hook.Add( "PostDrawTranslucentRenderables", "", function()
 		if ( t.time < CurTime() ) then table.remove( segments, id ) continue end
 		render.SetMaterial( t.mat )
 		for id2, seg in ipairs( t.segs ) do
-			render.DrawBeam( seg[1], seg[2], ( math.max( t.startpos:Distance( t.endpos ) - seg[1]:Distance( t.endpos ), 20) / ( t.startpos:Distance( t.endpos ) ) * t.w ) * ( (t.time - CurTime() ) / tiem ), 0, seg[1]:Distance( seg[2] ) / 25, Color( 255, 255, 255 ) )
-			--render.DrawBeam( seg[1], seg[2], (id2 / #t.segs * t.w ) * ((t.time - CurTime()) / tiem), 0, seg[1]:Distance( seg[2] ) / 25, Color( 255, 255, 255 ) )
+			render.DrawBeam( seg[1], seg[2], ( math.max( t.startpos:Distance( t.endpos ) - seg[1]:Distance( t.endpos ), 20) / ( t.startpos:Distance( t.endpos ) ) * t.w ) * ( (t.time - CurTime() ) / tiem ), 0, seg[1]:Distance( seg[2] ) / 25, color_white )
+			--render.DrawBeam( seg[1], seg[2], (id2 / #t.segs * t.w ) * ((t.time - CurTime()) / tiem), 0, seg[1]:Distance( seg[2] ) / 25, color_white )
 		end
 	end
 end )
@@ -142,7 +143,7 @@ function EFFECT:Render()
 		if (t.time < CurTime() ) then table.remove( segments, id ) continue end
 		render.SetMaterial( t.mat )
 		for id, seg in pairs( t.segs ) do
-			render.DrawBeam( seg[1], seg[2], (id / #t.segs * t.w ) * ((t.time - CurTime()) / tiem), 0, seg[1]:Distance( seg[2] ) / 25, Color( 255, 255, 255 ) )
+			render.DrawBeam( seg[1], seg[2], (id / #t.segs * t.w ) * ((t.time - CurTime()) / tiem), 0, seg[1]:Distance( seg[2] ) / 25, color_white )
 		end
 	end]]
 end

@@ -1,3 +1,4 @@
+local vector_origin = vector_origin
 
 function EFFECT:Init( data )
 	local pos = data:GetOrigin()
@@ -11,8 +12,8 @@ function EFFECT:Init( data )
 		particle:SetLifeTime( 0 )
 		particle:SetDieTime( 0.5 )
 
-		particle:SetGravity( Vector( 0, 0, 0 ) )
-		particle:SetVelocity( Vector( 0, 0, 0 ) )
+		particle:SetGravity( vector_origin )
+		particle:SetVelocity( vector_origin )
 
 		particle:SetStartSize( 100 )
 		particle:SetEndSize( 0 )
@@ -29,8 +30,8 @@ function EFFECT:Init( data )
 		particle:SetLifeTime( 0 )
 		particle:SetDieTime( 0.3 )
 
-		particle:SetGravity( Vector( 0, 0, 0 ) )
-		particle:SetVelocity( Vector( 0, 0, 0 ) )
+		particle:SetGravity( vector_origin )
+		particle:SetVelocity( vector_origin )
 
 		particle:SetStartSize( math.random( 38, 42 ) )
 		particle:SetEndSize( math.random( 48, 52 ) )

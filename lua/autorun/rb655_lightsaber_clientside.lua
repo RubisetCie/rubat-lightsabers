@@ -25,6 +25,7 @@ local IsValid = IsValid
 local render = render
 local util = util
 local math = math
+local color_black = color_black
 
 -- --------------------------------------------------------- Fix the bad sounds and models --------------------------------------------------------- --
 
@@ -189,7 +190,7 @@ function rb655_RenderBlade( pos, dir, length, maxlen, width, color, black_inner,
 	end
 
 	local inner_color = color_white
-	if ( black_inner ) then inner_color = Color( 0, 0, 0 ) end
+	if ( black_inner ) then inner_color = color_black end
 
 	local bladeS = 1
 	if ( quillon ) then

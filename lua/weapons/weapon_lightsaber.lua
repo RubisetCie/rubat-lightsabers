@@ -1127,6 +1127,7 @@ end )
 
 local rb655_lightsaber_hud_blur = CreateClientConVar( "rb655_lightsaber_hud_blur", "0" )
 
+local half_transparent = Color( 0, 0, 0, 128 )
 local grad = Material( "gui/gradient_up" )
 local matBlurScreen = Material( "pp/blurscreen" )
 matBlurScreen:SetFloat( "$blur", 3 )
@@ -1152,11 +1153,11 @@ local function DrawHUDBox( x, y, w, h, b )
 		render.SetScissorRect( 0, 0, 0, 0, false )
 	else
 		draw.NoTexture()
-		surface.SetDrawColor( Color( 0, 0, 0, 128 ) )
+		surface.SetDrawColor( half_transparent )
 		surface.DrawTexturedRect( x, y, w, h )
 	end
 
-	surface.SetDrawColor( Color( 0, 0, 0, 128 ) )
+	surface.SetDrawColor( half_transparent )
 	surface.DrawRect( x, y, w, h )
 
 	if ( b ) then
@@ -1215,6 +1216,10 @@ local function patchCalcViewHook( str )
 	end )
 end
 
+local forcehud_text = Color( 255, 230, 230 )
+local forcehud_selected = Color( 255, 200, 200 )
+local forcehud_orange1 = Color( 255, 255, 128 )
+local forcehud_orange2 = Color( 255, 128, 128 )
 function SWEP:DrawHUD_FuckedUpHooks( y )
 	if ( ForceSelectEnabled ) then return end
 
@@ -1233,12 +1238,12 @@ function SWEP:DrawHUD_FuckedUpHooks( y )
 
 		local id = 1
 		DrawHUDBox( x - tW / 2 - 5, y, tW + 10, tH )
-		draw.SimpleText( string.Explode( "\n", txt )[ 1 ], "SelectedForceHUD", x, y + 0, Color( 255, 230, 230 ), 1 )
+		draw.SimpleText( string.Explode( "\n", txt )[ 1 ], "SelectedForceHUD", x, y + 0, forcehud_text, 1 )
 
 		for str, func in pairs( hook.GetTable()[ "PlayerBindPress" ] ) do
-			local clr = Color( 255, 255, 128 )
+			local clr = forcehud_orange1
 			if ( ( isstring( str ) and func( LocalPlayer(), "this_bind_doesnt_exist", true ) == true ) or ( !isstring( str ) and func( str, LocalPlayer(), "this_bind_doesnt_exist", true ) == true ) ) then
-				clr = Color( 255, 128, 128 )
+				clr = forcehud_orange2
 			end
 			if ( !isstring( str ) ) then str = tostring( str ) end
 			if ( str == "" ) then str = "<empty string hook>" end
@@ -1259,12 +1264,12 @@ function SWEP:DrawHUD_FuckedUpHooks( y )
 
 		local id = 1
 		DrawHUDBox( x - tW / 2 - 5, y, tW + 10, tH )
-		draw.SimpleText( string.Explode( "\n", txt )[ 1 ], "SelectedForceHUD", x, y + 0, Color( 255, 230, 230 ), 1 )
+		draw.SimpleText( string.Explode( "\n", txt )[ 1 ], "SelectedForceHUD", x, y + 0, forcehud_text, 1 )
 
 		for str, func in pairs( hook.GetTable()[ "CalcView" ] ) do
-			local clr = Color( 255, 255, 128 )
+			local clr = forcehud_orange1
 			if ( ( isstring( str ) and func( LocalPlayer(), EyePos(), EyeAngles(), 90, 4, 16000 ) != nil ) or ( !isstring( str ) and func( str, LocalPlayer(), EyePos(), EyeAngles(), 90, 4, 16000 ) != nil ) ) then
-				clr = Color( 255, 128, 128 )
+				clr = forcehud_orange2
 
 				-- Automatically patch the offender, this is BAD but what can I do about BAD addons?
 				patchCalcViewHook( str )
@@ -1296,12 +1301,12 @@ function SWEP:DrawHUD_FuckedUpHooks( y )
 		DrawHUDBox( x - tW / 2 - 5, y, tW + 10, tH )
 		for id, str in pairs( string.Explode( "\n", txt ) ) do
 			local _, lineH = surface.GetTextSize( str )
-			draw.SimpleText( str, "SelectedForceHUD", x, y + ( id - 1 ) * lineH, Color( 255, 200, 200 ), 1 )
+			draw.SimpleText( str, "SelectedForceHUD", x, y + ( id - 1 ) * lineH, forcehud_selected, 1 )
 		end
 	end
 end
 
-local Color_White = Color( 255, 255, 255 )
+local Color_White = color_white
 local Color_BLU = Color( 0, 128, 255 )
 local ForceBar = 100
 local function DrawForceSelectionHUD( ForceSelectionEnabled, Force, MaxForce, SelectedPower, ForcePowers )
@@ -1411,7 +1416,7 @@ local function DrawForceSelectionHUD( ForceSelectionEnabled, Force, MaxForce, Se
 		local y = y + gap - tH2 - gap * 2
 
 		DrawHUDBox( x, y, tW2 + 10, tH2 )
-		draw.SimpleText( txt, "SelectedForceType", x + gap, y, Color( 255, 255, 255 ) )
+		draw.SimpleText( txt, "SelectedForceType", x + gap, y, Color_White )
 
 	end
 

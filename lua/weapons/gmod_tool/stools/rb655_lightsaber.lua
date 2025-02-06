@@ -19,6 +19,12 @@ TOOL.ClientConVar[ "offsound" ] = "lightsaber/saber_off1.wav"
 
 cleanup.Register( "ent_lightsabers" )
 
+local IsValid = IsValid
+local surface = surface
+local math = math
+local vector_origin = vector_origin
+local angle_zero = angle_zero
+
 if ( SERVER ) then
 	CreateConVar( "sbox_maxent_lightsabers", 2, FCVAR_ARCHIVE + FCVAR_REPLICATED + FCVAR_NOTIFY )
 
@@ -233,7 +239,7 @@ end
 
 function TOOL:Think()
 	if ( !IsValid( self.GhostEntity ) or self.GhostEntity:GetModel() != self:GetClientInfo( "model" ) ) then
-		self:MakeGhostEntity( self:GetClientInfo( "model" ), Vector( 0, 0, 0 ), Angle( 0, 0, 0 ) )
+		self:MakeGhostEntity( self:GetClientInfo( "model" ), vector_origin, angle_zero )
 	end
 
 	self:UpdateGhostEntity( self.GhostEntity, self:GetOwner() )
